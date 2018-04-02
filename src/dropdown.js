@@ -113,6 +113,10 @@ class Dropdown extends Component<Props, State> {
         }
     }
 
+    handleOnClick = (event: {target: any}) => {
+        this.toggleExpanded()
+    }
+
     renderPanel() {
         const {contentComponent: ContentComponent, contentProps} = this.props;
 
@@ -165,13 +169,14 @@ class Dropdown extends Component<Props, State> {
             onMouseLeave={this.handleMouseLeave}
         >
             <div
+                ref="heading"
                 className="dropdown-heading"
                 style={{
                     ...styles.dropdownHeader,
                     ...expandedHeaderStyle,
                     ...focusedHeaderStyle,
                 }}
-                onClick={this.toggleExpanded}
+                onClick={this.handleOnClick}
             >
                 <span
                     className="dropdown-heading-value"
