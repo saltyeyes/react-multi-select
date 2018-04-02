@@ -111,6 +111,8 @@ var Dropdown = function (_Component) {
             if (!newExpanded && _this.wrapper) {
                 _this.wrapper.focus();
             }
+        }, _this.handleOnClick = function (event) {
+            _this.toggleExpanded();
         }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
@@ -189,9 +191,10 @@ var Dropdown = function (_Component) {
                 _react2.default.createElement(
                     'div',
                     {
+                        ref: 'heading',
                         className: 'dropdown-heading',
                         style: _extends({}, styles.dropdownHeader, expandedHeaderStyle, focusedHeaderStyle),
-                        onClick: this.toggleExpanded
+                        onClick: this.handleOnClick
                     },
                     _react2.default.createElement(
                         'span',
